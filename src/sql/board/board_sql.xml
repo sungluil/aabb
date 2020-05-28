@@ -506,7 +506,7 @@
 		  FROM
 		  	(
 	<foreach item="item" collection="list"  separator=" UNION ALL" index="index">
-		  		SELECT (SELECT NVL(TO_NUMBER(MAX(FILE_ID)+(#{index }+1)),1) FROM POST_FILE_TABLE) as fileId
+		  		SELECT (SELECT NVL(TO_NUMBER(MAX(FILE_NUM)+(#{index }+1)),1) FROM POST_FILE_TABLE) as fileId
 		  	  , #{item.fileWriter, jdbcType=VARCHAR } as fileWriter
 		  	  , (SELECT NVL(TO_NUMBER(MAX(FILE_NUM)+(#{index }+1)),1) FROM POST_FILE_TABLE) as fileNum
 		  	  , #{item.fileGroup, jdbcType=VARCHAR } as fileGroup

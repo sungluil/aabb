@@ -1,4 +1,4 @@
-2<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="/WEB-INF/views/common/common.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -249,27 +249,27 @@ function check() {
 				<button id="searchButton" type="button" class="btn btn-primary btn-sm">조회</button>
 				<a href='<c:url value='/board/excelDown.do' />'><button id="excelDownBtn" type="button" class="btn btn-primary btn-sm" >엑셀 다운로드</button></a>
 				&nbsp;
-				<div style="display: inline; padding-left: 225px;"><a class="btn btn-primary btn-sm" href ="${pageContext.request.contextPath }/board/boardWrite.do">글쓰기</a></div>
+				<div style="display: inline; padding-left: 190px;"><a class="btn btn-primary btn-sm" href ="${pageContext.request.contextPath }/board/boardWrite.do">글쓰기</a></div>
 				
 			</div>
 		</form>
 		<div align="center">
 			<ul class="pagination">
 				<li class="page-item">
-				<a href="boardList.do?pageNo=1">&lt;&lt;</a>
-				<c:if test="${pageVo.pageNo >= 6 }">
-					<a href="boardList.do?pageNo=${pageVo.prevPage }">&lt;</a>
+				<a href="boardList.do?pageNo=1">처음</a>
+				<c:if test="${pageVo.startPage>pageVo.blockSize }">
+					<a href="boardList.do?pageNo=${pageVo.startPage-pageVo.blockSize}">이전</a>
 				</c:if>
 				<c:forEach var="i" begin="${pageVo.startPage}" end="${pageVo.endPage}">
 		            <c:choose>
-		                <c:when test="${i eq pageVo.pageNo}"><a>${i}</a></c:when>
-		                <c:otherwise><a class="page-link" href="boardList.do?pageNo=${i}">${i}</a></c:otherwise>
+		                <c:when test="${i eq pageVo.pageNo}"><a style="font-weight: bold; color: red;">${i}</a></c:when>
+		                <c:otherwise><a  class="page-link" href="boardList.do?pageNo=${i}">${i}</a></c:otherwise>
 		            </c:choose>
 		        </c:forEach>
-		        <c:if test="${pageVo.pageNo >= 5 }">
-		        <a href="boardList.do?pageNo=${pageVo.nextPage }">&gt;</a>
+		        <c:if test="${pageVo.endPage!= pageVo.totalPage}">
+		        <a href="boardList.do?pageNo=${pageVo.nextPage }">다음</a>
 		        </c:if>
-		        <a href="boardList.do?pageNo=${pageVo.totalPage }">&gt;&gt;</a>
+		        <a href="boardList.do?pageNo=${pageVo.totalPage }">마지막</a>
 		        </li>
 			</ul>
 		</div>		

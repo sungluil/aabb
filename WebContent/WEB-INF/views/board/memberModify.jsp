@@ -15,7 +15,7 @@
 <body>
 <div class="container">
   <h2>회원가입정보</h2>
-  <p>${userinfo.userName } 님 환영합니다.</p>            
+  <p>[${userinfo.userName }] 님 환영합니다.</p>            
   <table class="table">
     <thead>
       <tr>

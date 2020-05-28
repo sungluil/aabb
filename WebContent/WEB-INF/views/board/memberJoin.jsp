@@ -6,10 +6,7 @@
 <head>
 <title>회원가입</title>
 <style type="text/css">
-input {
-	max-width: 240px;
-	border: 1px solid #111;
-}
+
 input::placeholder {
 	color: gray;
 	font-style: italic;
@@ -21,11 +18,11 @@ select {
 	height: 26px;
 }
 .t1 {
-	width:109px;
+	width:150px;
 	text-align: center;	
 }
 .t2 {
-	width: 200px;
+	width: 400px;
 }
 .error {
 	color: red;
@@ -44,66 +41,36 @@ select {
 	<tr>
 		<td>
 		<form name="f" method="post">
-			<table id="boardTable" border = "0" style="border-spacing: 5px; border-collapse: separate;" >
-			<caption style="display: none;">회원가입</caption>
+			<table id="boardTable" border = "1">
 			<thead>
 				<tr>
 					<td height="40" width="80" align="center" colspan="3">
-					
+						회원가입
 					</td>
 				</tr>
 			</thead>
-			<tbody id="joinContent">	
+			<tbody>	
 				<tr>
 					<td class="t1">
 						Id
 					</td>
 					<td class="t2">
 						<div><input name="userId" id="id" type="text" placeholder="아이디" onkeyup="" onmouseover="isSame()" value="${userinfo.userId }">
-				  		</div>
-				  		<input type="hidden" name="idDuplication" value="idUncheck">
-					</td>
-					<td>
-					&emsp;<input type="button" class="idCheck" value="중복확인">
-					</td>
-				</tr>
-				<tr>
-					<td>
-
-					</td>
-					<td>
-						<span id="idMsg" class="error"></span>
-					</td>
-					<td>
-					</td>
-				</tr>
-				<tr>
-					<td>
-
-					</td>
-					<td>
+				  		&emsp;<input type="button" class="idCheck" value="중복확인"></div>
+				  		<span id="idMsg" class="error"></span>
 				  		<span class="result">
 				  			<span class="msg">아이디를 확인해주세요.</span>
 				  		</span>
-					</td>
-					<td>
+				  		<input type="hidden" name="idDuplication" value="idUncheck">
 					</td>
 				</tr>
-				
 				<tr>
 					<td class="t1">
 						pw
 					</td>
 					<td class="t2">
 						<div><input name="userPw" id="pw" type="password" placeholder="비밀번호" onkeyup="isSame()"></div>
-						
-					</td>
-				</tr>
-				<tr>
-					<td>
-					</td>
-					<td>
-					<span id="pwMsg" class="error"></span>
+						<span id="pwMsg" class="error"></span>
 					</td>
 				</tr>
 				<tr>
@@ -112,14 +79,7 @@ select {
 					</td>
 					<td class="t2">
 						<div><input name="userPwChk" id="pwCheck" type="password" placeholder="비밀번호 확인" onkeyup="isSame()"></div>
-						
-					</td>
-				</tr>
-				<tr>
-					<td>
-					</td>
-					<td>
-					<span id="pwCheckMsg" class="error"></span>
+						<span id="pwCheckMsg" class="error"></span>
 					</td>
 				</tr>
 				<tr>

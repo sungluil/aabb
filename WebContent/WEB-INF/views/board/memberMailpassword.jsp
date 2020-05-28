@@ -17,7 +17,7 @@ select {
 }
 .t1 {
 	width:150px;
-	text-align: center;	
+	text-align: right;	
 }
 .t2 {
 	width: 175px;
@@ -39,7 +39,7 @@ select {
 	<tr>
 		<td>
 		<form action="/board/sendpw.do" id="form" name="f" method="post" class="login" >
-			<table id="boardTable" border = "1">
+			<table id="boardTable" border = "0" style="border-collapse: separate; border-spacing: 5px;">
 			<thead>
 				<tr>
 					<td height="40" width="80" align="center" colspan="3">
@@ -69,7 +69,7 @@ select {
 			</tbody>
 			</table>
 			<div>			
-			<label style="text-align: right;">
+			<label style="text-align: right; padding-left: 230px">
 			<button type="submit" class="submit">send</button>
 			</label>
 			</div>

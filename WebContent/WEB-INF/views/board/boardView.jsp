@@ -24,20 +24,40 @@ $j(document).ready(function() {
 	 * each함수 호출로 $(this)로 구별
 	 * 용량의 크기에 따라 MB, KB, byte 단위로 환산함
 	**/
+// 	if (true) {
+// 		$j(".fileSize").each(function(i) {
+// 			var fileSize = $j(this).html();
+// 			isSize = (Math.round(((fileSize / 1024) / 1024) * 100) / 100.0);
+// 			$j(this).html(isSize+" MB")
+// 			console.log(i+"번째"+isSize);
+// 		});
+// 	}
+// 	$j(".fileSize").each(function(i) {
+// 		if (fileSize >= 1024 * 1024) {
+// 			isSize = (Math.round(((fileSize / 1024) / 1024) * 100) / 100.0)		
+// 			$j(".fileSize").html(isSize+" MB")
+// 			console.log("["+i+"번째]: "+isSize);
+// 		} else if(fileSize >= 1024) {
+// 			isSize = (Math.round((fileSize / 1024) * 100) / 100)
+// 			$j(".fileSize").html(isSize+" KB")
+// 			console.log("["+i+"번째]: "+isSize);
+// 		}
+// 	});
 	$j(".fileSize").each(function(){//클래스 아이디로 반복문
 		var fileSize = $j(this).html();//this로 각각값을 fileSize에 담는다
 		console.log("fileSize = " +fileSize);//콘솔로 출력해서 확인
 
 		if (fileSize >= 1024 * 1024) {
-			isSize = (Math.round(((fileSize / 1024) / 1024) * 100) / 100.0)					
-			$j(".fileSize").html(isSize+" MB")
+			isSize = (Math.round(((fileSize / 1024) / 1024) * 100) / 100.0)		
+			$j(this).html(isSize+" MB")
 		} else if(fileSize >= 1024) {
 			isSize = (Math.round((fileSize / 1024) * 100) / 100)
-			$j(".fileSize").html(isSize+" KB")
+			$j(this).html(isSize+" KB")
 		}
 	});
 	
 });
+	//form function
 	function fn_fileDown(fileNum) {
 		var formObj = $j("form[name='readForm']");
 		$j("#FILE_NUM").attr("value", fileNum);
@@ -127,7 +147,7 @@ $j(document).ready(function() {
 												<td align="center"><c:out value="${fn:substring(list.fileRegDttm,0,8)}"/></td>
 												<td align="center"><input type="hidden" value="${list.fileId }" id="fileId">
 												<a href="#" onclick="javascript:fn_fileDown('${list.fileNum}'); return false;">${list.fileOrgName }</a></td>
-												<td align="center" class="fileSize" onclick="isSize('${list.fileSize}','2')">${list.fileSize}</td>
+												<td align="center" class="fileSize" onclick="isSize('i','${list.fileSize}')">${list.fileSize}</td>
 											</tr>
 										</c:forEach>
 										</c:otherwise>
